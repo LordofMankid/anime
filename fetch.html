@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Fetch API</title>
+	<meta charset="utf-8" />
+</head>
+
+
+<body>
+
+	<h1>Anime API</h1>
+
+	<h2>Fetch API</h2>
+	<button type="button" onclick="fetchapi()">fetch</button>
+  <p id="data_fetch" style="display:none"></p>
+
+</body>
+
+<script>
+	// ========= fetch API ========= //
+	let result_fetch = document.getElementById("data_fetch");
+	function fetchapi() {
+		// toggle display
+		if (result_fetch.style.display == "none") {
+			result_fetch.style.display = "block";
+		} else {
+			result_fetch.style.display = "none";
+		}
+
+		// fetch
+		res = fetch("https://api.jikan.moe/v4/anime")
+			.then(res => res.json())
+			.then(data => {
+				// data = JSON.stringify(data);
+        // console.log(data.data[0].title);
+        // console.log(data.data[0]);
+				result_fetch.innerHTML = "";
+	
+				for (var i = 0; i < data.data.length; i++) {
+					let genres = "";
+					let studios = "";
+
+					for (var j = 0; j < data.data[i].genres.length; j++) { 
+						// studios += data.data[i].studios[j].name + " | ";
+						genres += data.data[i].genres[j].name + " | ";
+						// console.log (data.data[i].genres[j].name);
+						// let genres = data.data[i].genres[j].name;
+					}
+					result_fetch.innerHTML +=
+						data.data[i].title + "</br>" +
+						"English Title: " + data.data[i].title_english + "</br>" +
+						"Japanese Title: " + data.data[i].title_japanese + "</br>" +
+						"Type: " + data.data[i].type + "</br>" +
+						"Episodes: " + data.data[i].episodes + "</br>" +
+						"Aired: " + data.data[i].aired.string + "</br>" +
+						"Duration: " + data.data[i].duration + "</br>" +
+						"Rating: " + data.data[i].rating + "</br>" +
+						"Synopsis: " + data.data[i].synopsis + "</br>" +
+						"Background: " + data.data[i].background + "</br>" +
+						"Season: " + data.data[i].season + "</br>" +
+						// "Studios: " + studios + "</br>" + 
+						"Genres: " + genres + "</br>" + 
+						"<p></p>";
+
+					
+				}
+
+			})
+		.catch(error => console.log(error))
+ 	}
+
+
+</script>
+
+</html>
