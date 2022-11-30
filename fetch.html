@@ -44,10 +44,13 @@
 					for (var j = 0; j < data.data[i].genres.length; j++) { 
 						// studios += data.data[i].studios[j].name + " | ";
 						genres += data.data[i].genres[j].name + " | ";
-						// console.log (data.data[i].genres[j].name);
+						// images = JSON.stringify(data.data[i].images.jpg.image_url);
+						// console.log(data.data[i].images.jpg.image_url);
+						// console.log(images);
 						// let genres = data.data[i].genres[j].name;
 					}
 					result_fetch.innerHTML +=
+						"<img src = " + data.data[i].images.jpg.image_url + " alt movie_poster> </br>" +
 						data.data[i].title + "</br>" +
 						"English Title: " + data.data[i].title_english + "</br>" +
 						"Japanese Title: " + data.data[i].title_japanese + "</br>" +
