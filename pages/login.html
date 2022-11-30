@@ -10,8 +10,13 @@
     <link href="../css/main.min.css" rel="stylesheet">
 
     <style>
-        .container-fluid {
-            max-width:780px;
+        .col>#login-form {
+            max-width: 400px;
+        }
+
+        .login-container {
+            max-width: 500px;
+            margin: auto;
         }
     </style>
 </head>
@@ -49,20 +54,34 @@
         </div>
     </nav>
 
-    <div class="container-fluid" id="login">
-        <form>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="username" class="form-control" id="username" placeholder="Username">
+    <div class="container-fluid bob" id="login">
+        <div class="row">
+            <div class="col">
+                <div class="login-container">
+                    <form>
+                        <div class="form-group flex">
+                            <input type="username" class="form-control" id="username" placeholder="Username">
+
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="signInUser()">Continue</button>
+
+                        <a href="./signup.html">Sign up instead</a>
+                        <a href="./home.html">Go home</a>
+                    </form>
+
+                </div>
+
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+
+            <div class="col">
+
+                <p>hi</p>
             </div>
-            <button type="button" class="btn btn-primary" onclick="signInUser()">Submit</button>
-            <a href="./signup.html">Sign up instead</a>
-            <a href="./home.html">Go home</a>
-        </form>
+
+        </div>
+
+
     </div>
 </body>
 
