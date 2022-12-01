@@ -8,6 +8,69 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <title>CS20 Final Project</title>
     <link href="../css/main.min.css" rel="stylesheet">
+
+    <style>
+        .col>#login-form {
+            max-width: 400px;
+        }
+
+        .footer {
+            height: 40vh;
+            min-height:200px;
+        }
+
+        .center {
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .background-img {
+            height: 100vh;
+            position: absolute;
+            z-index: -1;
+            background-color: rgb(36, 56, 74);
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .h-40 {
+            height: 40%;
+        }
+
+        .h-20 {
+            height: 20%;
+        }
+
+        .short-line {
+            height: 5px;
+            border: 4px solid black;
+            width: 100px;
+            display: block;
+        }
+
+        .long-line {
+            height: 5px;
+            margin: 20px 0px;
+            border-top: 2px solid black;
+            width: 80%;
+            margin: auto;
+            display: block;
+
+            opacity: 1;
+
+        }
+
+
+        .bg-image {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('./assets/signup-bg.jpg');
+
+            background-position: center;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -41,27 +104,117 @@
         </div>
     </nav>
 
-    <div class="container-xl">
-        <form>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="username" class="form-control" id="username" placeholder="Username">
+    <!-- sign-in/new user code-->
+    <div class="container-fluid full-height" id="login">
+        <div class="row align-items-center h-100 ">
+            <!-- column one-->
+            <div class="col my-auto h-100">
+                <div class="center h-100">
+                    <div class="row h-40 m-6 justify-content-center">
+
+                        <div class="container align-center mt-auto">
+                            <h1 class="text-center">Sign in</h1>
+                            <h6 class="text-center">All your anime needs in one location.</h2>
+                        </div>
+
+                    </div>
+                    <div class="container h-25 align-items-center">
+
+                        <form>
+                            <div class="form-group p-2">
+                                <input type="username" class="form-control" id="username" placeholder="Username">
+                            </div>
+
+                            <div class="form-group p-2">
+                             
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                    placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                    else.</small>
+                            </div>
+                            <div class="form-group p-2">
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+
+                            <div class="d-grid p-2">
+                                <button type="button" class="btn btn-primary" onclick="registerUser()">Register!</button>
+
+                            </div>
+
+                        </form>
+                        <div class="d-md-none">
+                            <div class="m-auto">
+                                <a href="./signup.html">Sign up instead</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="container h-25"></div>
+
+
+                </div>
+
             </div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
+
+            <div class="col my-auto h-100 d-none d-md-block bg-image">
+                <div class="container center h-100">
+                    <div class="row h-40">
+                        <h1 class="text-center mt-auto">New User?</h1>
+                    </div>
+
+                    <hr class="short-line center">
+                    <h2 class="text-center p-2"> Glad to see you here! </h2>
+                    <p class="text-center p-2"> Fill in some basic information about yourself to get started!</h2>
+                        <hr class="short-line center">
+
+                    <div class="d-grid pt-3">
+                        <a class="btn btn-outline-dark" href="./signup.html">Sign up instead</a>
+
+                    </div>
+
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- footer-->
+
+    <div class="container-fluid footer bg-light">
+        <div class="h-20 align-items-center">
+
+        </div>
+        <hr class="long-line">
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="text-center">Profile</h4>
+                <p class="m-1">basic info</p>
+                <p class="m-1">basic info</p>
+                <p class="m-1">basic info</p>
             </div>
-            <button type="button" class="btn btn-primary" onclick="registerUser()">Submit</button>
-            <a href="./login.html">Sign in instead</a>
-            <a href="./home.html">Go home</a>
-        </form>
+
+            <div class="col text-center">
+                <h4 class="text-center">Address</h4>
+                <p>27 Anime Road</p>
+            </div>
+
+            <div class="col">
+                <h4 class="text-center">About Us</h4>
+            </div>
+
+        </div>
+
+        <div class="h-20 align-items-center">
+            <hr class="long-line">
+        </div>
+
+
     </div>
 </body>
 

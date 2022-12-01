@@ -14,7 +14,10 @@
             max-width: 400px;
         }
 
-        .login-container {}
+        .footer {
+            height: 40vh;
+            min-height:200px;
+        }
 
         .center {
             max-width: 500px;
@@ -37,16 +40,35 @@
             height: 40%;
         }
 
+        .h-20 {
+            height: 20%;
+        }
+
         .short-line {
-            height:5px;
-            border:4px solid black;
-            width:100px;
-            display:block;
+            height: 5px;
+            border: 4px solid black;
+            width: 100px;
+            display: block;
+        }
+
+        .long-line {
+            height: 5px;
+            margin: 20px 0px;
+            border-top: 2px solid black;
+            width: 80%;
+            margin: auto;
+            display: block;
+
+            opacity: 1;
 
         }
 
-        @media screen and (max-width: 576px) {
-            
+
+        .bg-image {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('./assets/signup-bg.jpg');
+
+            background-position: center;
+
         }
     </style>
 </head>
@@ -84,6 +106,7 @@
         </div>
     </nav>
 
+    <!-- sign-in/new user code-->
     <div class="container-fluid full-height" id="login">
         <div class="row align-items-center h-100 ">
             <!-- column one-->
@@ -113,7 +136,13 @@
                             </div>
 
                         </form>
+                        <div class="d-md-none">
+                            <div class="m-auto">
+                                <a href="./signup.html">Sign up instead</a>
 
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="container h-25"></div>
@@ -123,17 +152,17 @@
 
             </div>
 
-            <div class="col my-auto h-100">
+            <div class="col my-auto h-100 d-none d-md-block bg-image">
                 <div class="container center h-100">
                     <div class="row h-40">
                         <h1 class="text-center mt-auto">New User?</h1>
                     </div>
-                    
+
                     <hr class="short-line center">
                     <h2 class="text-center p-2"> Glad to see you here! </h2>
                     <p class="text-center p-2"> Fill in some basic information about yourself to get started!</h2>
-                    <hr class="short-line center">
-                    
+                        <hr class="short-line center">
+
                     <div class="d-grid pt-3">
                         <a class="btn btn-outline-dark" href="./signup.html">Sign up instead</a>
 
@@ -142,6 +171,37 @@
                 </div>
             </div>
 
+        </div>
+
+
+    </div>
+
+    <div class="container-fluid footer bg-light">
+        <div class="h-20 align-items-center">
+
+        </div>
+        <hr class="long-line">
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="text-center">Profile</h4>
+                <p class="m-1">basic info</p>
+                <p class="m-1">basic info</p>
+                <p class="m-1">basic info</p>
+            </div>
+
+            <div class="col text-center">
+                <h4 class="text-center">Address</h4>
+                <p>27 Anime Road</p>
+            </div>
+
+            <div class="col">
+                <h4 class="text-center">About Us</h4>
+            </div>
+
+        </div>
+
+        <div class="h-20 align-items-center">
+            <hr class="long-line">
         </div>
 
 
