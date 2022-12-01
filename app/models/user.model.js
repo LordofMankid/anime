@@ -15,6 +15,7 @@ const User = mongoose.model(
     planned: [],
     watching: [],
     completed: [],
+    about: String,
   })
 );
 

@@ -13,7 +13,8 @@ exports.signup = (req, res) => {
     password: bcrypt.hashSync(req.body.password, 8),
     planned: [],
     watching: [],
-    completed: []
+    completed: [],
+    about: "Edit your 'About Me' here!",
   });
 
   user.save((err, user) => {
