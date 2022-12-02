@@ -6,71 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <title>CS20 Final Project</title>
+    <title>Sign Up</title>
     <link href="../css/main.min.css" rel="stylesheet">
-
-    <style>
-        .col>#login-form {
-            max-width: 400px;
-        }
-
-        .footer {
-            height: 40vh;
-            min-height: 200px;
-        }
-
-        .center {
-            max-width: 500px;
-            width: 100%;
-            margin: auto;
-        }
-
-        .background-img {
-            height: 100vh;
-            position: absolute;
-            z-index: -1;
-            background-color: rgb(36, 56, 74);
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .h-40 {
-            height: 40%;
-        }
-
-        .h-20 {
-            height: 20%;
-        }
-
-        .short-line {
-            height: 5px;
-            border: 4px solid black;
-            width: 100px;
-            display: block;
-        }
-
-        .long-line {
-            height: 5px;
-            margin: 20px 0px;
-            border-top: 2px solid black;
-            width: 80%;
-            margin: auto;
-            display: block;
-
-            opacity: 1;
-
-        }
-
-
-        .bg-image {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('./assets/signup.jpg');
-
-            background-position: center;
-
-        }
-    </style>
+    <link href="../css/signup.css" rel="stylesheet">
 </head>
 
 <body>
@@ -91,13 +29,6 @@
 
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="goToProfile()">Profile</a>
-                    </li>
                 </ul>
             </div>
 
@@ -111,15 +42,12 @@
             <div class="col my-auto h-100">
                 <div class="center h-100">
                     <div class="row h-40 m-6 justify-content-center">
-
                         <div class="container align-center mt-auto">
                             <h1 class="text-center">Sign in</h1>
                             <h6 class="text-center">All your anime needs in one location.</h2>
                         </div>
-
                     </div>
                     <div class="container h-25 align-items-center">
-
                         <form>
                             <div class="form-group p-2">
                                 <input type="username" class="form-control" id="username" placeholder="Username">
@@ -140,45 +68,25 @@
                             <div class="d-grid p-2">
                                 <button type="button" class="btn btn-primary"
                                     onclick="registerUser()">Register!</button>
-
                             </div>
-
                         </form>
-                        
                             <a class="d-block text-center" href="./login.html ">Have an account already? Login here instead.</a>
-
-                        
                     </div>
-
                     <div class="container h-25"></div>
-
-
                 </div>
-
             </div>
-
             <div class="col my-auto h-100 d-none d-md-block bg-image">
                 <div class="container center h-100">
                     <div class="row h-40">
                         <h1 class="text-center mt-auto">Placeholder for Logo</h1>
                     </div>
-
-
                     <h2 class="text-center p-2"> Glad to see you here! </h2>
-
-
                 </div>
             </div>
-
         </div>
-
-
     </div>
 
-
-
     <!-- footer-->
-
     <div class="container-fluid footer bg-light">
         <div class="h-20 align-items-center">
 
@@ -206,8 +114,6 @@
         <div class="h-20 align-items-center">
             <hr class="long-line">
         </div>
-
-
     </div>
 </body>
 

@@ -4,58 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-
+    <title>CS20 Final Project</title>
     <link href="../css/main.min.css" rel="stylesheet">
-    <!-- <link href="home.css" rel="stylesheet"> -->
-
-    <style>
-        .img-wrapper {
-            max-width: 100%;
-            height: 20em;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-        @media screen and (min-width:576px) {
-            .carousel-inner {
-                display: flex;
-            }
-
-            .carousel-item {
-                display: block;
-                margin-right: 0;
-                flex: 0 0 calc(100%/3);
-            }
-        }
-
-        .carousel-inner {
-            padding: 1em;
-        }
-
-        .card {
-            margin: 0 .5em;
-        }
-        
-        .icons img {
-            width:20px;
-            margin:5px;
-        }
-
-        .icons {
-            margin:auto;
-        }
-    </style>
-
+    <link href="../css/home.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="fetchJikanData()">
     <!-- nav bar-->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-xxl">
@@ -74,11 +28,10 @@
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="./community.html">Community</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" onclick="goToProfile()">Profile</a>
+                        <a class="nav-link" onclick="goToProfile()" style="cursor: pointer;">Profile</a>
                     </li>
                 </ul>
             </div>
@@ -88,119 +41,7 @@
 
     <!-- carousel -->
     <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/7/20310.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/10/19969.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/7/21569.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/12/66961.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/11/73923.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/12/49655.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="https://cdn.myanimelist.net/images/anime/9/10521.jpg" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+        <div class="carousel-inner" id="carousel-inner">
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
@@ -214,13 +55,9 @@
         </button>
     </div>
 
-
-
     <!-- footer test -->
-
     <div class="container-fluid footer bg-light">
         <div class="h-20 align-items-center">
-
         </div>
         <hr class="long-line">
         <div class="row">
@@ -242,22 +79,53 @@
 
             <div class="col">
                 <div class="icons d-flex justify-content-center">
-                    <a class="d-block" href="https://www.facebook.com/" target="_blank"><img src="./assets/facebook-icon.png" style="filter: invert(100%);"></a>
-                    <a class="d-block" href="https://www.instagram.com/" target="_blank"><img src="./assets/instagram-icon.png" style="filter: invert(100%);"></a>
-                    <a class="d-block" href="https://www.twitter.com/" target="_blank"><img src="./assets/twitter-icon.png" style="filter: invert(100%);"></a>
-    
+                    <a class="d-block" href="https://www.facebook.com/" target="_blank"><img
+                            src="./assets/facebook-icon.png" style="filter: invert(100%);"></a>
+                    <a class="d-block" href="https://www.instagram.com/" target="_blank"><img
+                            src="./assets/instagram-icon.png" style="filter: invert(100%);"></a>
+                    <a class="d-block" href="https://www.twitter.com/" target="_blank"><img
+                            src="./assets/twitter-icon.png" style="filter: invert(100%);"></a>
                 </div>
-                
             </div>
-
         </div>
 
         <div class="h-20 align-items-center">
             <hr class="long-line">
         </div>
-
-
     </div>
+
+    <script>
+        // ========= fetch API ========= //
+        async function fetchJikanData() {
+            res = await fetch("https://api.jikan.moe/v4/anime")
+                .then(res => res.json())
+                .then(data => {
+                    data = data.data;
+                    for (var i = 0; i < 10; i++) {
+                        var result_fetch =
+                            `<div class='carousel-item ${i == 0 ? "active" : ""}'>
+                                <div class='card'>
+                                    <div class="img-wrapper">
+                                        <img src="${data[i].images.jpg.image_url}">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${data[i].title}</h5>
+                                        <p class="card-text">Aired: ${data[i].aired.string} <br> Score: ${data[i].score}</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>`;
+                            // `<button onclick='savePlannedOrWatching(${data[i].mal_id}, "addWatching", "watching")'>Watching</button>` +
+                            // `<button onclick='savePlannedOrWatching(${data[i].mal_id}, "addPlanned", "planned")'>Plan to watch</button>` +
+                            // `<h4 id="error_${data[i].mal_id}"></h4>` +
+                        document.getElementById("carousel-inner").innerHTML += result_fetch;
+                    }
+                })
+                .catch(error => console.log(error))
+            
+            initialiseCarousel();
+        }
+    </script>
 
     <script>
         function goToProfile() {
@@ -270,9 +138,6 @@
         }
     </script>
 
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
@@ -281,8 +146,6 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script src="home.js"></script>
-
-
 </body>
 
 </html>
