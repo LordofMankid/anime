@@ -1,0 +1,30 @@
+.anime-view {
+    margin: 5vw;
+}
+
+#anime-info {
+    display: flex;
+    gap: 1vw;
+}
+
+#anime-synopsis {
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .anime-view {
+        margin: 5vw;
+    }
+    
+    #anime-info {
+        display: block;
+    }
+
+    .anime-info-text {
+        margin-top: 5vw;
+    }
+    
+    #anime-synopsis {
+        width: 100%;
+    }
+}

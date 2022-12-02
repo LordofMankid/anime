@@ -1,5 +1,4 @@
 function initialiseCarousel() {
-  console.log("Initializing")
   var carouselWidth = $('.carousel-inner')[0].scrollWidth;
   var cardWidth = $('.carousel-item').width();
 

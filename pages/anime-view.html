@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anime View</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="../css/main.min.css" rel="stylesheet">
+    <link href="../css/anime-view.css" rel="stylesheet">
+</head>
+
+<body onload="fetchAnimeData()">
+    <!-- nav bar-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-xxl">
+            <a class="navbar-brand" href="home.html">
+                <span class="fw-bold text-secondary">anime stuff</span>
+            </a>
+            <form class="form-inline flex-grow-1">
+                <input class="rounded" type="search">
+            </form>
+            <!-- toggle for mobile nav -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="goToProfile()" style="cursor: pointer;">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="anime-view">
+        <div id="anime-info">
+            <img src="" id="anime-img" />
+            <div class="anime-info-text">
+                <h4 id="anime-title"></h4>
+                <h4 id="anime-title-jp"></h4>
+                <br>
+                <h6 id="anime-genres"></h6>
+                <h6 id="anime-rank"></h6>
+                <h6 id="anime-score"></h6>
+            </div>
+        </div>
+        <br>
+        <h6 id="anime-synopsis"></h6>
+        <br>
+        <button id="save-watching-button">Watching</button>
+        <button id="save-planned-button">Plan to watch</button>
+        <button id="save-completed-button">Completed</button>
+        <br><br>
+        <h6 id="error"></h6>
+    </div>
+
+    <script>
+        async function fetchAnimeData() {
+            var anime_id = JSON.parse(localStorage.getItem("anime_id"));
+            const res = await axios.get(`https://api.jikan.moe/v4/anime/${anime_id}`)
+            const data = res.data.data;
+            console.log(data);
+
+            document.getElementById("anime-img").src = data.images.jpg.image_url;
+            document.getElementById("anime-title").innerHTML = data.title;
+            document.getElementById("anime-title-jp").innerHTML = data.title_japanese;
+            document.getElementById("anime-synopsis").innerHTML = data.synopsis;
+            document.getElementById("anime-rank").innerHTML = "Rank: " + data.rank;
+            document.getElementById("anime-score").innerHTML = "Score: " + data.score;
+
+            document.getElementById("anime-genres").innerHTML = "Genres: ";
+            for (var i = 0; i < data.genres.length; i++) {
+                document.getElementById("anime-genres").innerHTML += data.genres[i].name + ", "; 
+            }
+            // get rid of last comma at the end lol
+            document.getElementById("anime-genres").innerHTML = (document.getElementById("anime-genres").innerHTML).substr(0, (document.getElementById("anime-genres").innerHTML).length - 2);
+
+            document.getElementById("save-watching-button").setAttribute('onclick', `saveToList(${anime_id}, "addWatching", "watching")`);
+            document.getElementById("save-planned-button").setAttribute('onclick', `saveToList(${anime_id}, "addPlanned", "planned")`);
+            document.getElementById("save-completed-button").setAttribute('onclick', `saveToList(${anime_id}, "addCompleted", "completed")`);
+        }
+
+        async function saveToList(anime_id, route, list_name) 
+        {
+            var user = JSON.parse(localStorage.getItem('user'));
+            if (user == null) {
+                window.location = "./login.html";
+            }
+            
+            var data = {
+                anime_id: anime_id,
+            }
+
+            const res = await axios.put(`http://localhost:8080/api/user/${route}/${user.username}`, data)
+            if (res.data.message != null) {
+                console.log(res.data.message);
+                document.getElementById(`error`).innerHTML = "Already in " + list_name + " list."
+                document.getElementById(`error`).style.color = "red";
+            } else {
+                document.getElementById(`error`).innerHTML = "Successfully added to " + list_name + " list."
+                document.getElementById(`error`).style.color = "green";
+                console.log(res.data);
+            }
+        }
+    </script>
+
+    <script>
+        function goToProfile() {
+            var user = JSON.parse(localStorage.getItem('user'));
+            if (user != null) {
+                window.location = "./profile.html";
+            } else {
+                window.location = "./login.html";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+
+</html>

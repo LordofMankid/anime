@@ -168,7 +168,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
     #genre-4-div {
         display: none;
     }
@@ -176,7 +176,9 @@
     #genre-5-div {
         display: none;
     }
+}
 
+@media screen and (max-width: 768px) {
     .about-container,
     .stats-container,
     .genres-container {

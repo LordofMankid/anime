@@ -71,6 +71,23 @@ module.exports = function (app) {
     }
   });
 
+  app.put("/api/user/addCompleted/:id", async (req, res) => {
+    try {
+      const user = await User.findOne({ username: req.params.id });
+      var new_completed = user.completed;
+      if (!(new_completed.includes(req.body.anime_id))) {
+        new_completed.push(req.body.anime_id);
+      } else {
+        res.send({ message: "Already in completed list." })
+        return;
+      }
+      const updated_user = await User.findByIdAndUpdate(user._id, { completed: new_completed }, { useFindAndModify: false });
+      res.send(updated_user);
+    } catch (err) {
+      res.status(500).json({ message: err.message })
+    }
+  });
+
   app.put("/api/user/removePlanned/:id", async (req, res) => {
     try {
       const user = await User.findOne({ username: req.params.id });

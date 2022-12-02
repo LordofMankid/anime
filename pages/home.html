@@ -110,14 +110,17 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">${data[i].title}</h5>
-                                        <p class="card-text">Aired: ${data[i].aired.string} <br> Score: ${data[i].score}</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <p class="card-text">
+                                            Aired: ${data[i].aired.string}
+                                            <br>
+                                            Score: ${data[i].score}
+                                            <br>
+                                            Genre: ${data[i].genres[0].name}
+                                        </p>
+                                        <a href="#" class="btn btn-primary" onclick="viewAnime(${data[i].mal_id})">View</a>
                                     </div>
                                 </div>
                             </div>`;
-                            // `<button onclick='savePlannedOrWatching(${data[i].mal_id}, "addWatching", "watching")'>Watching</button>` +
-                            // `<button onclick='savePlannedOrWatching(${data[i].mal_id}, "addPlanned", "planned")'>Plan to watch</button>` +
-                            // `<h4 id="error_${data[i].mal_id}"></h4>` +
                         document.getElementById("carousel-inner").innerHTML += result_fetch;
                     }
                 })
@@ -135,6 +138,11 @@
             } else {
                 window.location = "./login.html";
             }
+        }
+
+        function viewAnime(id) {
+            localStorage.setItem("anime_id", JSON.stringify(id));
+            window.location = "./anime-view.html";
         }
     </script>
 

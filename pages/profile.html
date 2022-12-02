@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Profile</title>
+    <title>Bootstrap demo</title>
     <link href="../css/main.min.css" rel="stylesheet" />
     <link href="../css/profile.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
@@ -317,9 +317,9 @@
 
                 // add data to the html div
                 watching_results.innerHTML +=
-                    "<div class='list-data'>" +
-                    `<img style='width:50%' src="${anime_data.images.jpg.image_url}"/>` +
-                    `<h6>${anime_data.title} (${anime_data.title_japanese})</h6>` +
+                    `<div class='list-data'>` +
+                    `<img style='width:50%; cursor:pointer;' src="${anime_data.images.jpg.image_url}" onclick='viewAnime(${anime_data.mal_id})' />` +
+                    `<h6 onclick='viewAnime(${anime_data.mal_id})' style="cursor: pointer;">${anime_data.title} (${anime_data.title_japanese})</h6>` +
                     `<h6 class='list-data-genre'>${anime_data.genres[0].name}</h6>` +
                     `<h6>${anime_data.score}</h6>` +
                     `<div style='cursor:pointer' onclick='removeFromList(${anime_data.mal_id}, "removeWatching")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
@@ -337,7 +337,6 @@
                     <h5>Title</h5>
                     <h5 class='list-genre-header'>Genre</h5>
                     <h5>Score</h5>
-                    <h5 class='list-remove-header'>Remove</h5>
                 </div>`;
             planned_array = data.planned;
             for (var i = 0; i < planned_array.length; i++) {
@@ -348,9 +347,9 @@
 
                 // add data to the html div
                 planned_results.innerHTML +=
-                    "<div class='list-data'>" +
-                    `<img style='width:50%' src="${anime_data.images.jpg.image_url}"/>` +
-                    `<h6>${anime_data.title} (${anime_data.title_japanese})</h6>` +
+                    `<div class='list-data'>` +
+                    `<img style='width:50%; cursor:pointer;' src="${anime_data.images.jpg.image_url}" onclick='viewAnime(${anime_data.mal_id})' />` +
+                    `<h6 onclick='viewAnime(${anime_data.mal_id})' style="cursor: pointer;">${anime_data.title} (${anime_data.title_japanese})</h6>` +
                     `<h6 class='list-data-genre'>${anime_data.genres[0].name}</h6>` +
                     `<h6>${anime_data.score}</h6>` +
                     `<div style='cursor:pointer' onclick='removeFromList(${anime_data.mal_id}, "removePlanned")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
@@ -368,7 +367,6 @@
                     <h5>Title</h5>
                     <h5 class='list-genre-header'>Genre</h5>
                     <h5>Score</h5>
-                    <h5 class='list-remove-header'>Remove</h5>
                 </div>`;
             completed_array = data.completed;
             for (var i = 0; i < completed_array.length; i++) {
@@ -379,9 +377,9 @@
 
                 // add data to the html div
                 completed_results.innerHTML +=
-                    "<div class='list-data'>" +
-                    `<img style='width:50%' src="${anime_data.images.jpg.image_url}"/>` +
-                    `<h6>${anime_data.title} (${anime_data.title_japanese})</h6>` +
+                    `<div class='list-data'>` +
+                    `<img style='width:50%; cursor:pointer;' src="${anime_data.images.jpg.image_url}" onclick='viewAnime(${anime_data.mal_id})' />` +
+                    `<h6 onclick='viewAnime(${anime_data.mal_id})' style="cursor: pointer;">${anime_data.title} (${anime_data.title_japanese})</h6>` +
                     `<h6 class='list-data-genre'>${anime_data.genres[0].name}</h6>` +
                     `<h6>${anime_data.score}</h6>` +
                     `<div style='cursor:pointer' onclick='removeFromList(${anime_data.mal_id}, "removeCompleted")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
@@ -415,6 +413,11 @@
         function signOutUser() {
             localStorage.removeItem("user");
             window.location = "./home.html";
+        }
+
+        function viewAnime(id) {
+            localStorage.setItem("anime_id", JSON.stringify(id));
+            window.location = "./anime-view.html";
         }
     </script>
 
