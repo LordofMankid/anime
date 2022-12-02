@@ -10,6 +10,15 @@ module.exports = function (app) {
     next();
   });
 
+  app.get("/api/users", async (req, res) => {
+    try {
+      const users = await User.find();
+      res.send(users);
+    } catch (err) {
+      res.status(500).json({message: err.message})
+    }
+  });
+
   app.get("/api/user/:id", async (req, res) => {
     try {
       const user = await User.findOne({ username: req.params.id });
