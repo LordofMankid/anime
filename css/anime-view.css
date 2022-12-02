@@ -11,6 +11,24 @@
     width: 50%;
 }
 
+.add-to-list-button {
+    border: 0px solid black;
+    background-color: #61A7A5;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    transition: 0.2s ease;
+}
+
+.add-to-list-button:hover {
+    background-color: #396d6c;
+}
+
+.add-to-list-button:active {
+    background-color: #1d4847;
+}
+
 @media screen and (max-width: 768px) {
     .anime-view {
         margin: 5vw;
