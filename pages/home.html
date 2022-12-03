@@ -9,7 +9,7 @@
     <link href="../css/home.css" rel="stylesheet">
 </head>
 
-<body onload="fetchJikanData()">
+<body onload="fetchAllData()">
     <!-- nav bar-->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-xxl">
@@ -39,7 +39,8 @@
         </div>
     </nav>
 
-    <!-- carousel -->
+    <!-- carousels -->
+    <h2 class="header">Top Animes</h2>
     <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
         <div class="carousel-inner" id="carousel-inner">
         </div>
@@ -49,6 +50,22 @@
             <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <h2 class="header">General Animes</h2>
+    <div id="carouselExampleControls-2" class="carousel" data-bs-ride="carousel">
+        <div class="carousel-inner" id="carousel-inner-2">
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-2"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-2"
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
@@ -95,9 +112,46 @@
     </div>
 
     <script>
-        // ========= fetch API ========= //
-        async function fetchJikanData() {
+        async function fetchAllData() {
+            fetchTopAnime();
+            fetchGeneralAnime();
+        }
+
+        async function fetchGeneralAnime() {
             res = await fetch("https://api.jikan.moe/v4/anime")
+                .then(res => res.json())
+                .then(data => {
+                    data = data.data;
+                    for (var i = 0; i < 10; i++) {
+                        var result_fetch =
+                            `<div class='carousel-item ${i == 0 ? "active" : ""}'>
+                                <div class='card'>
+                                    <div class="img-wrapper">
+                                        <img src="${data[i].images.jpg.image_url}">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${data[i].title}</h5>
+                                        <p class="card-text">
+                                            Aired: ${data[i].aired.string}
+                                            <br>
+                                            Score: ${data[i].score}
+                                            <br>
+                                            Genre: ${data[i].genres[0].name}
+                                        </p>
+                                        <a href="#" class="btn btn-primary" onclick="viewAnime(${data[i].mal_id})">View</a>
+                                    </div>
+                                </div>
+                            </div>`;
+                        document.getElementById("carousel-inner-2").innerHTML += result_fetch;
+                    }
+                })
+                .catch(error => console.log(error))
+            
+            initialiseCarousel();
+        }
+
+        async function fetchTopAnime() {
+            res = await fetch("https://api.jikan.moe/v4/top/anime")
                 .then(res => res.json())
                 .then(data => {
                     data = data.data;

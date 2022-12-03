@@ -137,13 +137,14 @@
 
     <script>
         function goHome() {
+            localStorage.removeItem("community_user");
             window.location = "./home.html";
         }
 
         async function getCurrentUserData() {
             var user = JSON.parse(localStorage.getItem("community_user"));
             if (user == null) {
-                window.location = "./login.html";
+                window.location = "./community.html";
             } else {
                 document.getElementById("profile-username").innerHTML = user;
                 const res = await axios.get(
@@ -374,11 +375,13 @@
 
         function viewAnime(id) {
             localStorage.setItem("anime_id", JSON.stringify(id));
+            localStorage.removeItem("community_user");
             window.location = "./anime-view.html";
         }
 
         function goToProfile() {
             var user = JSON.parse(localStorage.getItem('user'));
+            localStorage.removeItem("community_user");
             if (user != null) {
                 window.location = "./profile.html";
             } else {
