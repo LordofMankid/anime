@@ -18,40 +18,51 @@
 <body onload="fetchAllData()">
     <!-- nav bar-->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
 
-        <a class="navbar-brand" href="home.html">
-            <span class="fw-bold text-secondary">anime stuff</span>
-        </a>
+            <div class="col-2 ">
+                <a class="navbar-brand" href="home.html">
+                    <span class="fw-bold text-secondary">anime stuff</span>
+                </a>
+
+            </div>
+
+            <div class="col-6 d-none d-md-block">
+                <form class="form-inline">
+                    <input class="rounded form-control" type="search" placeholder="Search for shows here...">
+                </form>
+
+            </div>
+
+            <!-- toggle for mobile nav -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="navbar-toggler-icon"> </div>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+
+                <ul class="navbar-nav align-items-end">
+                    <li class="nav-item d-md-none pt-3 w-100">
+                        <form class="form-inline">
+                            <input class="rounded form-control" type="search" placeholder="Search for shows here...">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="goToProfile()" style="cursor: pointer;">Profile</a>
+                    </li>
+
+                </ul>
+            </div>
+
 
         </div>
-
-        <form class="form-inline d-inline w-75">
-            <input class="rounded form-control" type="search">
-        </form>
-
-        </div>
-
-        <!-- toggle for mobile nav -->
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-            aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="navbar-toggler-icon"></div>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-
-            <ul class="navbar-nav align-items-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="./community.html">Community</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" onclick="goToProfile()" style="cursor: pointer;">Profile</a>
-                </li>
-            </ul>
-        </div>
-
-
-
     </nav>
 
     <!-- carousels -->
