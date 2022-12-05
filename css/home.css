@@ -36,15 +36,6 @@ img {
     margin: 0 .5em;
 }
 
-.icons img {
-    width: 20px;
-    margin: 5px;
-}
-
-.icons {
-    margin: auto;
-}
-
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(100%);
