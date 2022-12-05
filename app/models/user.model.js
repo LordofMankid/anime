@@ -16,6 +16,7 @@ const User = mongoose.model(
     watching: [],
     completed: [],
     about: String,
+    profile_pic: Number,
   })
 );
 

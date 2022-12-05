@@ -17,6 +17,27 @@
 
 .profile-pic {
     width: max(15vw, 15vh);
+    height: max(15vw, 15vh);
+    border-radius: 20px;
+}
+
+.select-profile-pic {
+    display: flex;
+    justify-content: space-around;
+    width: 70vw;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.profile-pic-selection {
+    width: 10vw;
+    height: 10vw;
+}
+
+.select-profile-pic-container {
+    display: none;
+    place-items: center;
+    margin-top: 3vw;
 }
 
 .about-container,
@@ -272,5 +293,17 @@
     .list-genre-header,
     .list-remove-header {
         display: none;
+    }
+
+    .select-profile-pic {
+        display: flex;
+        justify-content: space-around;
+        width: 94vw;
+        flex-wrap: wrap;
+    }
+    
+    .profile-pic-selection {
+        width: 25vw;
+        height: 25vw;
     }
 }

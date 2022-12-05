@@ -15,6 +15,7 @@ exports.signup = (req, res) => {
     watching: [],
     completed: [],
     about: "Edit your 'About Me' here!",
+    profile_pic: 0
   });
 
   user.save((err, user) => {
@@ -108,8 +109,8 @@ exports.signin = (req, res) => {
         email: user.email,
         planned: user.planned,
         watching: user.watching,
-        completed: user.compelted,
-        roles: authorities,
+        completed: user.completed,
+        profile_pic: user.profile_pic,
         accessToken: token
       });
     });

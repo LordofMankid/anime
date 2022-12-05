@@ -52,15 +52,17 @@
             var users = res.data;
             for (var i = 0; i < users.length; i++) {
                 document.getElementById("users-container").innerHTML +=
-                `<div>
+                `<div class="user-box">
+                    <img class='profile-pic' onclick="viewUser('${users[i].username}')" style="cursor:pointer;" src='./assets/profile-pics/profile-pic-${users[i].profile_pic}.png'/>
+                    <br><br>
                     <div onclick="viewUser('${users[i].username}')" style="cursor:pointer;">
-                        ${users[i].username}
+                        <h3>${users[i].username}</h3>
                     </div>
+                    <br>
                         ${users[i].about}
                     <div>
                     </div>
-                </div>
-                <br><br>`;
+                </div>`;
             }
         }
 

@@ -1,3 +1,25 @@
 #users-container {
-    margin: 5vw;
+    margin-block: 5vw;
+    margin-inline: 10vw;
+    display: flex;
+    gap: 3vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.user-box {
+    width: 20vw;
+    /* background-color: #F9F0F9;
+    border-radius: 3.5vw 3.5vw 20px 20px;
+    padding: 1.5vw; */
+}
+
+img {
+    width: 100%;
+}
+
+.profile-pic {
+    width: max(15vw, 15vh);
+    height: max(15vw, 15vh);
+    border-radius: 20px;
 }

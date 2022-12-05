@@ -45,7 +45,7 @@
             </div>
             <div class="profile-info">
                 <div style="display: flex; gap: 15px;">
-                    <img class="profile-pic" src="./assets/profile-img.png" />
+                    <img class="profile-pic" id="profile-pic" />
                     <div class="profile-name">
                         <h2 id="profile-username"></h2>
                         <div>Joined Dec 2022</div>
@@ -150,6 +150,7 @@
                 const res = await axios.get(
                     `http://localhost:8080/api/user/${user}`
                 );
+                document.getElementById("profile-pic").src = `./assets/profile-pics/profile-pic-${res.data.profile_pic}.png`
                 displayAboutMe(res.data.about);
                 displayStats(res.data.completed);
                 displayGenres(res.data.completed);
@@ -160,29 +161,6 @@
         function displayAboutMe(about) {
             document.getElementById("about").innerHTML = about;
             document.getElementById("about-text-edit").value = about;
-        }
-
-        function closeEditAbout() {
-            document.getElementById("about-box").style.display = "flex";
-            document.getElementById("about-box-edit").style.display = "none";
-        }
-
-        function editAbout() {
-            document.getElementById("about-box").style.display = "none";
-            document.getElementById("about-box-edit").style.display = "block";
-        }
-
-        async function submitEditAbout() {
-            var user = JSON.parse(localStorage.getItem("user"));
-            var updated_about = document.getElementById("about-text-edit").value;
-            var data = {
-                updated_about: updated_about,
-            };
-            const res = await axios.put(
-                `http://localhost:8080/api/user/updateAbout/${user.username}`,
-                data
-            );
-            document.location = "./profile.html"
         }
 
         // display stats

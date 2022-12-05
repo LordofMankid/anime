@@ -28,7 +28,8 @@ module.exports = function (app) {
         watching: user.watching,
         planned: user.planned,
         completed: user.completed,
-        about: user.about  
+        about: user.about,
+        profile_pic: user.profile_pic,
       });
     } catch (err) {
       res.status(500).json({message: err.message})
@@ -146,6 +147,16 @@ module.exports = function (app) {
     try {
       const user = await User.findOne({ username: req.params.id });
       const updated_user = await User.findByIdAndUpdate(user._id, { about: req.body.updated_about }, { useFindAndModify: false});
+      res.send(updated_user);
+    } catch (err) {
+      res.status(500).json({ message: err.message })
+    }
+  })
+  
+  app.put("/api/user/updateProfilePic/:id", async (req, res) => {
+    try {
+      const user = await User.findOne({ username: req.params.id });
+      const updated_user = await User.findByIdAndUpdate(user._id, { profile_pic: req.body.profile_pic });
       res.send(updated_user);
     } catch (err) {
       res.status(500).json({ message: err.message })
