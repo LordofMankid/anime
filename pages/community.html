@@ -2,85 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Community</title>
-    <link href="../css/main.min.css" rel="stylesheet">
-    <link href="../css/community.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community</title>
+  <link href="../css/main.min.css" rel="stylesheet">
+  <link href="../css/community.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
 
 <body onload="getUsers()">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container-xxl">
-            <a class="navbar-brand" href="home.html">
-                <span class="fw-bold text-secondary">anime stuff</span>
-            </a>
-            <form class="form-inline flex-grow-1">
-                <input class="rounded" type="search">
-            </form>
-            <!-- toggle for mobile nav -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <!-- nav bar-->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="col-2">
+        <a class="navbar-brand" href="home.html">
+          <span class="fw-bold text-secondary">anime stuff</span>
+        </a>
+      </div>
+      <div class="col-6 d-none d-md-block">
+        <input class="rounded form-control" type="search" id="search" name="q" placeholder="Search for shows here..."
+          onkeypress="handleSearch(event)" />
+      </div>
 
-            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="goToProfile()" style="cursor: pointer;">Profile</a>
-                    </li>
-                </ul>
-            </div>
+      <!-- toggle for mobile nav -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="navbar-toggler-icon"></div>
+      </button>
 
-        </div>
-    </nav>
-
-    <div id="users-container">
+      <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+        <ul class="navbar-nav align-items-end">
+          <li class="nav-item d-md-none pt-3 w-100">
+            <input class="rounded form-control" type="search" id="search-mobile" name="q"
+              placeholder="Search for shows here..." onkeypress="handleSearchMobile(event)" />
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./community.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="goToProfile()" style="cursor: pointer">Profile</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+  <div id="users-container">
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./js/community.js"></script>
+  <script src="./js/goToProfile.js"></script>
+  <script src="./js/search.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
 
-    <script>
-        async function getUsers() {
-            var res = await axios.get("http://localhost:8080/api/users");
-            var users = res.data;
-            for (var i = 0; i < users.length; i++) {
-                document.getElementById("users-container").innerHTML +=
-                `<div class="user-box">
-                    <img class='profile-pic' onclick="viewUser('${users[i].username}')" style="cursor:pointer;" src='./assets/profile-pics/profile-pic-${users[i].profile_pic}.png'/>
-                    <br><br>
-                    <div class='user-info'>
-                        <div onclick="viewUser('${users[i].username}')" style="cursor:pointer;">
-                            <h3>${users[i].username}</h3>
-                        </div>
-                        <br>
-                        ${users[i].about}
-                    </div>
-                </div>`;
-            }
-            /* <br>${users[i].about} */
-        }
-
-        function viewUser(username) {
-            localStorage.setItem("community_user", JSON.stringify(username));
-            window.location = "./user-view.html";
-        }
-
-        function goToProfile() {
-            var user = JSON.parse(localStorage.getItem('user'));
-            if (user != null) {
-                window.location = "./profile.html";
-            } else {
-                window.location = "./login.html";
-            }
-        }
-    </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </body>
 
 </html>

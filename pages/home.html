@@ -1,245 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Anime</title>
-    <link href="../css/main.min.css" rel="stylesheet">
-    <link href="../css/home.css" rel="stylesheet">
-    <link href="../css/sitewide.css" rel="stylesheet">
-    <style></style>
-    <script type='text/javascript' src=''></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-    <script type='text/javascript'
-        src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anime</title>
+  <link href="../css/main.min.css" rel="stylesheet" />
+  <link href="../css/home.css" rel="stylesheet" />
+  <link href="../css/sitewide.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script type="text/javascript" src=""></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script type="text/javascript"
+    src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 </head>
 
 <body onload="fetchAllData()">
-    <!-- nav bar-->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
+  <!-- nav bar-->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="col-2">
+        <a class="navbar-brand" href="home.html">
+          <span class="fw-bold text-secondary">anime stuff</span>
+        </a>
+      </div>
+      <div class="col-6 d-none d-md-block">
+        <form class="form-inline">
+          <input class="rounded form-control" type="search" id="search" name="q" placeholder="Search for shows here..."
+            onkeypress="handleSearch(event)" />
+      </div>
 
-            <div class="col-2 ">
-                <a class="navbar-brand" href="home.html">
-                    <span class="fw-bold text-secondary">anime stuff</span>
-                </a>
+      <!-- toggle for mobile nav -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="navbar-toggler-icon"></div>
+      </button>
 
-            </div>
+      <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+        <ul class="navbar-nav align-items-end">
+          <li class="nav-item d-md-none pt-3 w-100">
+            <form class="form-inline">
+              <input class="rounded form-control" type="search" id="search-mobile" name="q"
+                placeholder="Search for shows here..." onkeypress="handleSearchMobile(event)" />
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./community.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="goToProfile()" style="cursor: pointer">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-            <div class="col-6 d-none d-md-block">
-                <form class="form-inline">
-                    <input class="rounded form-control" type="search" placeholder="Search for shows here...">
-                </form>
+  <!-- carousels -->
+  <h2 class="header">Top Animes</h2>
+  <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+    <div class="carousel-inner" id="carousel-inner"></div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" id="prev-slide"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" id="next-slide"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-            </div>
+  <h2 class="header">General Animes</h2>
+  <div id="carouselExampleControls-2" class="carousel" data-bs-ride="carousel">
+    <div class="carousel-inner" id="carousel-inner-2"></div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-2" id="prev-slide-2"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-2" id="next-slide-2"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-            <!-- toggle for mobile nav -->
+  <!-- footer -->
+  <div class="container-fluid footer bg-light">
+    <div class="h-20 align-items-center"></div>
+    <hr class="long-line" />
+    <div class="row">
+      <div class="col text-center">
+        <h4 class="text-center">Profile</h4>
+        <p class="m-1">basic info</p>
+        <p class="m-1">basic info</p>
+        <p class="m-1">basic info</p>
+      </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="navbar-toggler-icon"> </div>
-            </button>
+      <div class="col text-center">
+        <h4 class="text-center">Address</h4>
+        <p>27 Anime Road</p>
+      </div>
 
+      <div class="col">
+        <h4 class="text-center">About Us</h4>
+      </div>
 
-
-            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-
-                <ul class="navbar-nav align-items-end">
-                    <li class="nav-item d-md-none pt-3 w-100">
-                        <form class="form-inline">
-                            <input class="rounded form-control" type="search" placeholder="Search for shows here...">
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./community.html">Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="goToProfile()" style="cursor: pointer;">Profile</a>
-                    </li>
-
-                </ul>
-            </div>
-
-
+      <div class="col">
+        <div class="icons d-flex justify-content-center">
+          <a class="d-block" href="https://www.facebook.com/" target="_blank"><img src="./assets/facebook-icon.png"
+              style="filter: invert(100%)" /></a>
+          <a class="d-block" href="https://www.instagram.com/" target="_blank"><img src="./assets/instagram-icon.png"
+              style="filter: invert(100%)" /></a>
+          <a class="d-block" href="https://www.twitter.com/" target="_blank"><img src="./assets/twitter-icon.png"
+              style="filter: invert(100%)" /></a>
         </div>
-    </nav>
-
-    <!-- carousels -->
-    <h2 class="header">Top Animes</h2>
-
-    <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
-        <div class="carousel-inner" id="carousel-inner">
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" id="prev-slide"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" id="next-slide"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+      </div>
     </div>
 
-    <h2 class="header">General Animes</h2>
-    <div id="carouselExampleControls-2" class="carousel" data-bs-ride="carousel">
-        <div class="carousel-inner" id="carousel-inner-2">
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-2"
-            id="prev-slide-2" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-2"
-            id="next-slide-2" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+    <div class="h-20 align-items-center">
+      <hr class="long-line" />
     </div>
+  </div>
 
-    <!-- footer test -->
-    <div class="container-fluid footer bg-light">
-        <div class="h-20 align-items-center">
-        </div>
-        <hr class="long-line">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="text-center">Profile</h4>
-                <p class="m-1">basic info</p>
-                <p class="m-1">basic info</p>
-                <p class="m-1">basic info</p>
-            </div>
+  <!-- helper functions -->
+  <script src="./js/goToProfile.js"></script>
+  <script src="./js/viewAnime.js"></script>
+  <script src="./js/fetchAllAnime.js"></script>
+  <script src="./js/search.js"></script>
+  <script src="./js/home.js"></script>
 
-            <div class="col text-center">
-                <h4 class="text-center">Address</h4>
-                <p>27 Anime Road</p>
-            </div>
-
-            <div class="col">
-                <h4 class="text-center">About Us</h4>
-            </div>
-
-            <div class="col">
-                <div class="icons d-flex justify-content-center">
-                    <a class="d-block" href="https://www.facebook.com/" target="_blank"><img
-                            src="./assets/facebook-icon.png" style="filter: invert(100%);"></a>
-                    <a class="d-block" href="https://www.instagram.com/" target="_blank"><img
-                            src="./assets/instagram-icon.png" style="filter: invert(100%);"></a>
-                    <a class="d-block" href="https://www.twitter.com/" target="_blank"><img
-                            src="./assets/twitter-icon.png" style="filter: invert(100%);"></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="h-20 align-items-center">
-            <hr class="long-line">
-        </div>
-    </div>
-
-    <script>
-        async function fetchAllData() {
-            fetchTopAnime();
-            fetchGeneralAnime();
-        }
-
-        async function fetchTopAnime() {
-            res = await fetch("https://api.jikan.moe/v4/top/anime")
-                .then(res => res.json())
-                .then(data => {
-                    data = data.data;
-                    for (var i = 0; i < 10; i++) {
-                        var result_fetch =
-                            `<div class='carousel-item ${i == 0 ? "active" : ""}'>
-                                <div class='card'>
-                                    <div class="img-wrapper">
-                                        <img src="${data[i].images.jpg.image_url}">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">${data[i].title}</h5>
-                                        <p class="card-text">
-                                            Aired: ${data[i].aired.string}
-                                            <br>
-                                            Score: ${data[i].score}
-                                            <br>
-                                            Genre: ${data[i].genres[0].name}
-                                        </p>
-                                        <a href="#" class="btn btn-primary" onclick="viewAnime(${data[i].mal_id})">View</a>
-                                    </div>
-                                </div>
-                            </div>`;
-                        document.getElementById("carousel-inner").innerHTML += result_fetch;
-                    }
-                })
-                .catch(error => console.log(error))
-
-            initialiseCarousel();
-        }
-
-        async function fetchGeneralAnime() {
-            res = await fetch("https://api.jikan.moe/v4/anime")
-                .then(res => res.json())
-                .then(data => {
-                    data = data.data;
-                    for (var i = 0; i < 10; i++) {
-                        var result_fetch =
-                            `<div class='carousel-item ${i == 0 ? "active" : ""}'>
-                                <div class='card'>
-                                    <div class="img-wrapper">
-                                        <img src="${data[i].images.jpg.image_url}">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">${data[i].title}</h5>
-                                        <p class="card-text">
-                                            Aired: ${data[i].aired.string}
-                                            <br>
-                                            Score: ${data[i].score}
-                                            <br>
-                                            Genre: ${data[i].genres[0].name}
-                                        </p>
-                                        <a href="#" class="btn btn-primary" onclick="viewAnime(${data[i].mal_id})">View</a>
-                                    </div>
-                                </div>
-                            </div>`;
-                        document.getElementById("carousel-inner-2").innerHTML += result_fetch;
-                    }
-                })
-                .catch(error => console.log(error))
-
-            initialiseCarousel();
-        }
-    </script>
-
-    <script>
-        function goToProfile() {
-            var user = JSON.parse(localStorage.getItem('user'));
-            if (user != null) {
-                window.location = "./profile.html";
-            } else {
-                window.location = "./login.html";
-            }
-        }
-
-        function viewAnime(id) {
-            localStorage.setItem("anime_id", JSON.stringify(id));
-            window.location = "./anime-view.html";
-        }
-    </script>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <script src="home.js"></script>
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </body>
 
 </html>
