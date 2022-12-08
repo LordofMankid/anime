@@ -11,3 +11,31 @@ async function registerUser() {
     console.log(res.data);
     window.location = "./login.html";
 }
+
+// javascript validation, -- inspiration from sample code @bootstrap
+
+(function () {
+
+    'use strict'
+
+    //Fetch all the forms we want to apply custom Boostratp validation styles to
+
+    var forms = document.querySelectorAll('.needs-validation');
+
+    //Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            
+            form.addEventListener('submit', function (event) {
+                
+                if (!form.checkValidity()) 
+                console.log("hi");{
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+
+    })()
+
