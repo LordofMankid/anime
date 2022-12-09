@@ -5,104 +5,198 @@
 
 .carousel-inner {
     display: flex;
-    height: 35vh;
-    width: 91%;
-    left: 3.4vw;
-    margin-block: 1vw;
-    margin-inline: 1vw;
+    height: 30vh;
+    width: 90%;
+    left: 5vh;
+    /* width: 80vh; */
+    margin: 1vh 1vw;
 }
 
 .carousel-item {
     display: block;
-    margin-right: 1vw;
-    flex: 0 0 calc(100%/6);
+    z-index: 1;
+    height: 100%;
+    /* margin-right: 0; */
+    margin: 0 1vw;
+    /* flex: 0 0 calc(100%/3); */
+    flex: 0 0 calc(100%/6); 
+
+}
+
+/* responsive (originally min-width: 576px) */
+@media screen and (max-width:1000px) {
+    .carousel-inner {
+        display: flex;
+        height: 30vh;
+        width: 90%;
+        left: 5vh;
+        margin: 1vh 1vw;
+    }
+
+    .carousel-item {
+        display: block;
+        z-index: 1;
+        height: 100%;
+        margin: 0 1vw;
+        flex: 0 0 calc(100%/4); 
+
+    }
+}
+
+@media screen and (max-width:500px) {
+    .carousel-inner {
+        display: flex;
+        height: 30vh;
+        width: 90%;
+        left: 5vh;
+        /* width: 80vh; */
+        margin: 1vh 1vw;
+    }
+
+    .carousel-item {
+        display: block;
+        z-index: 1;
+        height: 100%;
+        /* margin-right: 0; */
+        margin: 0 1vw;
+        flex: 0 0 calc(100%);
+        /* flex: 0 0 calc(100%/6);  */
+
+    }
 }
 
 .card {
-    width: 100%;
+    width: 80%;
     height: 100%;
+    /* margin: 0 .5em; */
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border: 0px solid black;
 }
 
-.card-body {
+.card > .img-wrapper {
+    /* display: flex; */
+    flex: flex-start;
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: clip;
+    vertical-align: top;
+    /* padding: 1rem; */
+    /* height: 20em; */
+    /* justify-content: center;
+    align-items: flex-start; */
+}
+
+.img-wrapper > img {
+    /* max-width: 100%;
+    max-height: 100%; */
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.card-body{
+    position: aboslute;
     opacity: 0;
     z-index: 2;
 }
 
 .card-body:hover {
     cursor: pointer;
-    background-color: rgb(0, 0, 0, 0.5);
+    position: aboslute;
+    background-color: rgb(0, 0, 0);
     color: white;
     opacity: 1;
     z-index: 2;
     transition-duration: 0.3s;
 }
 
-.carousel-control-next,
-.carousel-control-prev {
-    filter: invert(100%);
-    max-width: 50px;
+
+.icons img {
+    width: 20px;
+    margin: 5px;
 }
 
+.icons {
+    margin: auto;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+    /* z-index: -1; */
+    max-width: 50px;
+}
 .carousel-control-next {
     justify-content: flex-end;
-    margin-right: 20px;
+    margin: 0 20px 0 0;
 }
 
 .carousel-control-prev {
     justify-content: flex-start;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
 }
 
-/* responsive (originally min-width: 576px) */
-@media screen and (max-width: 1024px) {
-    .carousel-inner {
-        display: flex;
-        height: 35vh;
-        width: 88%;
-        left: 5vw;
-        margin-block: 1vw;
-        margin-inline: 1vw;
-    }
+/* Anime News */
 
-    .carousel-item {
-        display: block;
-        margin-right: 1vw;
-        flex: 0 0 calc(100%/4);
-    }
+
+.news {
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+   /* margin-inline: 1vw;*/
 }
 
-@media screen and (max-width: 768px) {
-    .carousel-inner {
-        display: flex;
-        height: 120vw;
-        width: 80vw;
-        left: 9vw;
-        /* margin-block: 1vw;
-        margin-inline: 1vw; */
-    }
-
-    .carousel-item {
-        display: block;
-        margin-right: 1vw;
-        flex: 0 0 calc(100%);
-    }
-
-    .carousel-control-next,
-    .carousel-control-prev {
-        filter: invert(100%);
-        max-width: 50px;
-    }
-
-    .carousel-control-next {
-        justify-content: flex-end;
-        margin: 0 !important;
-    }
-
-    .carousel-control-prev {
-        justify-content: flex-start;
-        margin: 0 !important;
-    }
+.news_card{
+    display: block;
+    padding:0px;
+    margin:auto;
+    /* position: absolute; */
+    max-width: 500px;
+    height: 281px;
+    
+    /* background-color: green; */
+    /* margin: 1vh 1vw 5vh 1vw; */
+    /* flex: 25%; */
 }
+
+.news_card:hover {
+    cursor: pointer;
+    position: abso lute;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    opacity: 1;
+    z-index: 2;
+    padding-bottom:5px;
+    transition-duration: 0.3s;
+}
+
+.cardcard {
+    padding-bottom:12vh;
+}
+
+
+.news_img_wrap {
+    height: 80%;
+    background-position-x: center;
+    background-position-y: 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+/*
+.news_title {
+    text-align: left;
+}*/
+
+/* .news_image {
+    width: 20vw;
+} */
+
+/* @media screen and (max-width: 833px) {
+   
+    .news_card {
+        flex: 50%;
+    }
+} */
+
