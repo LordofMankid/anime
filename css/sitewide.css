@@ -15,6 +15,10 @@
 .vh-15 {
     min-height:15vh;
 }
+
+.vh-10 {
+    min-height:10vh;
+}
 .h-30 {
     height:30%;
 }
@@ -30,10 +34,18 @@
     margin:auto;
 }
 
+.remove-text-deco {
+    text-decoration: none;
+    color:inherit;
+}
 /* FOOTER STYLING*/
 
+.footer-link {
+    padding-right:1.5vw;
+}
+
 .footer {
-    min-height:40vh;
+    min-height:31.5vh;
 }
 
 .icons img {
@@ -47,7 +59,7 @@
 
 .footer .short-line {
     height: 5px;
-    border: 4px solid black;
+    border: 2px solid black;
     width: 100px;
     display: block;
 }
@@ -55,13 +67,11 @@
 .footer .long-line {
     height: 5px;
     margin: 20px 0px;
-    border-top: 4px solid black;
+    border-top: 2px solid black;
     width: 90%;
     margin: auto;
     display: block;
-
     opacity: 1;
-
 }
 
 .background-img {

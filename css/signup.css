@@ -2,11 +2,6 @@
     max-width: 400px;
 }
 
-.footer {
-    height: 40vh;
-    min-height: 200px;
-}
-
 .center {
     max-width: 500px;
     width: 100%;
@@ -46,9 +41,7 @@
     width: 80%;
     margin: auto;
     display: block;
-
     opacity: 1;
-
 }
 
 .bg-image {

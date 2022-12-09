@@ -37,7 +37,7 @@ async function signInUser() {
           login_password.classList.add("is-invalid");
         }
         if (statusCode == 404) {
-          username_feedback.innerHTML += "Try a different username.";
+          username_feedback.innerHTML += "Username not found. Sign up instead?";
 
           login_name.classList.add("is-invalid");
         }
