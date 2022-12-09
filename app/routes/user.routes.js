@@ -19,6 +19,16 @@ module.exports = function (app) {
     }
   });
 
+  app.get("/api/checkUsername/:username", async (req, res) => {
+    try {
+      const user = await User.exists({ username: req.params.username })
+      
+      res.send(user);
+    } catch (err) {
+      res.send(user);
+    }
+  })
+
   app.get("/api/user/:id", async (req, res) => {
     try {
       const user = await User.findOne({ username: req.params.id });

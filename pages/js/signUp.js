@@ -1,6 +1,7 @@
-var form = document.getElementById("signup-form");
-var username = document.getElementById("username");
 
+var submit_form = document.getElementById("signup-form");
+var username = document.getElementById("username");
+var button = document.getElementById("submit");
 
 async function registerUser() {
     const username = document.getElementById("username").value;
@@ -18,36 +19,75 @@ async function registerUser() {
 
 // javascript validation, -- inspiration from sample code @bootstrap
 
-(function () {
+submit_form.addEventListener('submit', async function (event) {
 
-    'use strict'
+    if (!submit_form.checkValidity() || await checkUsernameValidity(username) === false) {
+        event.preventDefault()
+        event.stopPropagation()
+    }
+    submit_form.classList.add('was-validated')
+}, false);
 
-    //Fetch all the forms we want to apply custom Boostratp validation styles to
 
-    var forms = document.querySelectorAll('.needs-validation');
+// server-side javascript validation
+async function checkUsernameValidity(el) {
 
-    //Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            
-            form.addEventListener('submit', function (event) {
-                
-                if (!form.checkValidity()) 
-                {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-                form.classList.add('was-validated')
-            }, false)
-        })
+    // set button to loading button
+    button.classList.add('loading');
+    console.log("hi");
 
-    })()
+    
+    // triggers async request to the server
+    var valid = await validateUsername(el.value);
 
-    // server-side javascript validation
-    async function checkEmailValidity() {
-
-        button.classList.add('loading');
+   
+    // changes username validity tags according to the server's response
+    if (valid && el.value.length != 0) {
+        el.classList.add("is-valid");
+        el.classList.remove("is-invalid");
+        el.setCustomValidity("");
+    } else {
+        el.classList.remove("is-valid");
+        el.classList.add("is-invalid");
+        el.setCustomValidity("invalid");
     }
 
+    
+
+    button.classList.remove('loading');
+
+    return valid;
+}
 
 
+async function validateUsername(val) {
+
+    var result = await axios.get(`http://localhost:8080/api/checkUsername/${val}`);
+    var valid = false;
+    console.log(val);
+    console.log(result)
+
+    if (result.data === "") {
+        valid = true;
+        console.log(result.data);
+        console.log("valid username")
+    } else {
+        valid = false;
+        console.log(result.data);
+        console.log("invalid username; taken");
+    }
+
+    return valid;
+
+}
+
+username.addEventListener('blur', function (event) {
+    if (event.relatedTarget != button) checkUsernameValidity(this);
+}, false);
+
+username.addEventListener('change', function (event) {
+
+    this.classList.remove("is-invalid");
+    this.setCustomValidity("");
+
+}, false);
