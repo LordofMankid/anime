@@ -12,6 +12,9 @@
     height: 20%;
 }
 
+.vh-15 {
+    min-height:15vh;
+}
 .h-30 {
     height:30%;
 }
@@ -42,18 +45,18 @@
     margin: auto;
 }
 
-.footer > .short-line {
+.footer .short-line {
     height: 5px;
     border: 4px solid black;
     width: 100px;
     display: block;
 }
 
-.footer > .long-line {
+.footer .long-line {
     height: 5px;
     margin: 20px 0px;
-    border-top: 2px solid black;
-    width: 80%;
+    border-top: 4px solid black;
+    width: 90%;
     margin: auto;
     display: block;
 

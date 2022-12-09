@@ -4,6 +4,13 @@ async function fetchAnimeData() {
     const data = res.data.data;
     console.log(data);
 
+    if (data.score == null) {
+        data.score = "N/A"
+    }
+    if (data.rank == null) {
+        data.rank = "N/A"
+    }
+
     document.getElementById("anime-img").src = data.images.jpg.image_url;
     document.getElementById("anime-title").innerHTML = data.title;
     document.getElementById("anime-title-jp").innerHTML = data.title_japanese;
