@@ -52,18 +52,9 @@ module.exports = function (app) {
         profile_pic: user.profile_pic,
       });
     } catch (err) {
-      res.status(500).json({ message: err.message })
+      res.status(500).json({message: err.message})
     }
   });
-
-  app.get("/api/checkUsername/:username", async (req, res) => {
-    try {
-      const user = await User.findOne({ username: req.params.username })
-      res.send({ userExists: true });
-    } catch (err) {
-      res.send({ userExists: false });
-    }
-  })
 
   app.put("/api/user/addWatching/:id", async (req, res) => {
     try {

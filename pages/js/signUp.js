@@ -1,7 +1,7 @@
 
 var submit_form = document.getElementById("signup-form");
 var username = document.getElementById("username");
-var button = document.getElementById("button");
+var button = document.getElementById("submit");
 var signup_email = document.getElementById("email");
 
 async function registerUser() {
@@ -14,27 +14,11 @@ async function registerUser() {
         password: password
     }
     const res = await axios.post("http://localhost:8080/api/auth/signup", user);
+    console.log(res.data);
     window.location = "./login.html";
 }
 
 // javascript validation, -- inspiration from sample code @bootstrap
-(function () {
-    'use strict'
-    // Fetch all the forms we want to apply custom Boostrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation');
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity())
-                    console.log("hi"); {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
 
 submit_form.addEventListener('submit', async function (event) {
 
@@ -78,8 +62,6 @@ async function checkValidity(el) {
         el.classList.add("is-invalid");
         el.setCustomValidity("invalid");
     }
-
-
 
     button.classList.remove('loading');
 
@@ -146,10 +128,6 @@ async function validateEmail(val) {
             console.log(result.data);
             console.log("invalid email; taken");
         }
-
         return valid;
-
     }
-
 }
-
