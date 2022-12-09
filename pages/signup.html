@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="container h-25 align-items-center">
-                        <form class="row needs-validation" id="signup-form" novalidate>
+                        <form class="row needs-validation" id="signup-form" onsubmit="registerUser()"novalidate>
 
                             <!-- username w/ validation-->
                             <div class="form-group p-2">
@@ -82,10 +82,7 @@
                                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                                     placeholder="Enter email" required aria-describedby="validationEmail">
                                 <div class="invalid-feedback">
-                                    Please enter a valid email!
-                                </div>
-                                <div id="validationEmail" class="invalid-feedback">
-                                    Email already taken. Try a different one.
+                                    Email is either invalid or taken. Try something else!
                                 </div>
                             </div>
 

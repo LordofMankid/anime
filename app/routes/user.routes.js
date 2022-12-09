@@ -29,6 +29,16 @@ module.exports = function (app) {
     }
   })
 
+  app.get("/api/checkEmail/:email", async (req, res) => {
+    try {
+      const user = await User.exists({ email: req.params.email })
+      
+      res.send(user);
+    } catch (err) {
+      res.send(user);
+    }
+  })
+
   app.get("/api/user/:id", async (req, res) => {
     try {
       const user = await User.findOne({ username: req.params.id });
