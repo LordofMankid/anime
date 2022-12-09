@@ -75,13 +75,69 @@
               <!-- email w/validation-->
               <div class="form-group p-2">
 
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                  placeholder="Enter email" required>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                  anyone
-                  else.</small>
-                <div class="invalid-feedback">
-                  Please enter a valid email!
+    <!-- sign-in/new user code-->
+    <div class="container-fluid full-height" id="login">
+        <div class="row align-items-center h-100 ">
+            <!-- column one-->
+            <div class="col my-auto h-100">
+                <div class="center h-100">
+                    <div class="row h-40 m-6 justify-content-center">
+                        <div class="container align-center mt-auto">
+                            <h1 class="text-center">Sign Up</h1>
+                            <h6 class="text-center">All your anime needs in one location.</h2>
+                        </div>
+                    </div>
+                    <div class="container h-25 align-items-center">
+                        <form class="row needs-validation" id="signup-form" onsubmit="registerUser()"novalidate>
+
+                            <!-- username w/ validation-->
+                            <div class="form-group p-2">
+                                <input type="username" class="form-control" id="username" placeholder="Username"
+                                    required aria-describedby="validationUsername">
+
+                                <div class="valid-feedback" id="validationUsername">
+                                    Looks good!
+                                </div>
+                                <div id="validationUsername" class="invalid-feedback">
+                                    Username either taken or field is empty. Try something else!
+                                </div>
+                            </div>
+                            <!-- email w/validation-->
+                            <div class="form-group p-2">
+
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                    placeholder="Enter email" required aria-describedby="validationEmail">
+                                <div class="invalid-feedback">
+                                    Email is either invalid or taken. Try something else!
+                                </div>
+                            </div>
+
+                            <!-- set password with validation-->
+                            <div class="form-group p-2">
+                                <input type="password" autocomplete="new-password" class="form-control" id="password"
+                                    placeholder="Set password" required minlength="12"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{12,}$">
+
+                                <div class="invalid-feedback">
+                                    Make sure your password has:
+                                    <ul>
+                                        <li>At least 12 characters</li>
+                                        <li>One lowercase letter</li>
+                                        <li>One uppercase letter</li>
+                                        <li>One number</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- submit button -->
+                            <div class="d-grid p-2">
+                                <button type="submit" class="btn btn-primary" id="submit">Register!</button>
+                            </div>
+                        </form>
+                        <a class="d-block text-center" href="./login.html ">Have an account already? Login here
+                            instead.</a>
+                    </div>
+                    <div class="container h-25"></div>
                 </div>
               </div>
 
