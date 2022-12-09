@@ -1,19 +1,20 @@
 {
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.3",
     "connect-ensure-login": "^0.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "express-useragent": "^1.0.15",
+    "jquery-validation": "^1.19.5",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.4",
     "passport": "^0.6.0",
-    "passport-local-mongoose": "^7.1.2",
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "jsonwebtoken": "^8.5.1"
+    "passport-local-mongoose": "^7.1.2"
   },
   "scripts": {
     "start": "node server.js",

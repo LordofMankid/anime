@@ -1,3 +1,7 @@
+var form = document.getElementById("signup-form");
+var username = document.getElementById("username");
+
+
 async function registerUser() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -29,7 +33,7 @@ async function registerUser() {
             form.addEventListener('submit', function (event) {
                 
                 if (!form.checkValidity()) 
-                console.log("hi");{
+                {
                     event.preventDefault()
                     event.stopPropagation()
                 }
@@ -38,4 +42,12 @@ async function registerUser() {
         })
 
     })()
+
+    // server-side javascript validation
+    async function checkEmailValidity() {
+
+        button.classList.add('loading');
+    }
+
+
 
