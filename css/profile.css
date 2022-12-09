@@ -19,6 +19,7 @@
     width: max(15vw, 15vh);
     height: max(15vw, 15vh);
     border-radius: 20px;
+    background-color: #BEDAC3;
 }
 
 .select-profile-pic {
@@ -32,6 +33,9 @@
 .profile-pic-selection {
     width: 10vw;
     height: 10vw;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #BEDAC3;
 }
 
 .select-profile-pic-container {
@@ -298,12 +302,28 @@
     .select-profile-pic {
         display: flex;
         justify-content: space-around;
-        width: 94vw;
+        width: 90vw;
+        flex-wrap: wrap;
+    }
+    
+    .select-profile-pic-container {
+        display: none;
+        place-items: center;
+        margin-top: 10vw;
+    }    
+
+    .select-profile-pic {
+        display: flex;
+        justify-content: space-around;
+        width: 90vw;
         flex-wrap: wrap;
     }
     
     .profile-pic-selection {
         width: 25vw;
         height: 25vw;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        background-color: #BEDAC3;
     }
 }

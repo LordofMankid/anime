@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Search Results</title>
   <link href="../css/main.min.css" rel="stylesheet" />
-  <link href="../css/community.css" rel="stylesheet" />
+  <link href="../css/search-results.css" rel="stylesheet" />
   <link href="../css/sitewide.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
@@ -50,7 +50,11 @@
     </div>
   </nav>
 
-  <div id="search-container"></div>
+  <div id="search-container">
+    <h4 id="search-results-header"></h4>
+    <br>
+    <div id="search-results"></div>
+  </div>
 
   <!-- helper functions -->
   <script src="./js/loadSearchResults.js"></script>

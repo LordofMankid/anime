@@ -1,6 +1,5 @@
 async function getCurrentUserData() {
     var user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
     if (user == null) {
         window.location = "./login.html";
     } else {
@@ -44,8 +43,16 @@ async function submitEditAbout() {
     document.location = "./profile.html"
 }
 
+var editOn = false;
+
 function editProfilePic() {
-    document.getElementById("select-profile-pic-container").style.display = "grid";
+    if (editOn) {
+        document.getElementById("select-profile-pic-container").style.display = "none";
+        editOn = false
+    } else {
+        document.getElementById("select-profile-pic-container").style.display = "grid";
+        editOn = true
+    }
 }
 
 async function submitEditProfilePic(profile_pic) {
@@ -263,7 +270,6 @@ async function removeFromList(anime_id, route) {
     var data = {
         anime_id: anime_id,
     };
-    console.log(data);
 
     const res = await axios.put(
         `http://localhost:8080/api/user/${route}/${user.username}`,
@@ -272,7 +278,6 @@ async function removeFromList(anime_id, route) {
     if (res.data.message != null) {
         console.log(res.data.message);
     } else {
-        console.log(res.data);
         window.location = "./profile.html";
     }
 }

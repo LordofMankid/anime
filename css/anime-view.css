@@ -2,18 +2,65 @@
     margin: 5vw;
 }
 
+#anime-genres {
+    color: #808080 !important;
+    font-weight: normal;
+}
+
 #anime-info {
     display: flex;
-    gap: 1vw;
+    gap: 3vw;
+}
+
+#anime-img {
+    width: 25vw;
+    height: 35vw;
 }
 
 #anime-synopsis {
-    width: 50%;
+    width: 100%;
+}
+
+#add-to-list-message {
+    margin-top: 1.5vw;
+}
+
+#anime-info-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 3vw;
+}
+
+#add-to-list-buttons {
+    display: block;
+    width: 38vw;
+}
+
+#add-to-list-buttons button {
+    width: 100%;
+    margin-block: 0.5vw;
+}
+
+#anime-rank-score-year {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 3vw;
+    gap: 3vw;
+    margin-block: 0.5vw;
+    background-color: #F9F0F9;
+    border-radius: 15px;
+}
+
+#anime-rank-wrapper,
+#anime-score-wrapper,
+#anime-year-wrapper {
+    display: grid;
+    place-items: center;
 }
 
 .add-to-list-button {
     border: 0px solid black;
-    background-color: #61A7A5;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -21,15 +68,116 @@
     transition: 0.2s ease;
 }
 
-.add-to-list-button:hover {
+.watching {
+    color: #ffffff;
+    background-color: #61A7A5;
+}
+
+.watching:hover {
     background-color: #396d6c;
 }
 
-.add-to-list-button:active {
+.watching:active {
     background-color: #1d4847;
 }
 
+.plan-to-watch {
+    color: #724c28;
+    background-color: #F4D3B4;
+}
+
+.plan-to-watch:hover {
+    background-color: #d7a97d;
+}
+
+.plan-to-watch:active {
+    background-color: #9b6532;
+}
+
+.completed {
+    color: #5b5e08;
+    background-color: #D5DA25;
+}
+
+.completed:hover  {
+    background-color: #b4b919;
+}
+
+.completed:active  {
+    background-color: #9a9f0c;
+}
+
 @media screen and (max-width: 768px) {
+    .anime-view {
+        margin: 3vw;
+    }
+    
+    #anime-genres {
+        color: #808080 !important;
+        font-weight: normal;
+    }
+    
+    #anime-info {
+        display: grid;
+    }
+    
+    #anime-img {
+        width: 50vw;
+        height: 65vw;
+    }
+    
+    #add-to-list-message {
+        margin-top: 1.5vw;
+        margin-bottom: 3vw;
+    }
+    
+    #anime-info-bottom {
+        display: grid;
+    }
+    
+    #add-to-list-buttons {
+        display: block;
+        width: 94vw;
+        margin-bottom: 1vw;
+    }
+    
+    #add-to-list-buttons button {
+        margin-bottom: 1vw;
+    }
+    
+    #anime-rank-score-year {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 3vw;
+        gap: 3vw;
+        margin-block: 0.5vw;
+        background-color: #F9F0F9;
+        border-radius: 15px;
+    }
+    
+    #error {
+        margin-top: 1vw;
+    }
+    
+    #anime-rank-wrapper,
+    #anime-score-wrapper,
+    #anime-year-wrapper {
+        display: grid;
+        place-items: center;
+    }
+    
+    .add-to-list-button {
+        border: 0px solid black;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        margin-right: 10px;
+        transition: 0.2s ease;
+    }
+}
+
+/* @media screen and (max-width: 768px) {
     .anime-view {
         margin: 5vw;
     }
@@ -45,4 +193,4 @@
     #anime-synopsis {
         width: 100%;
     }
-}
+} */

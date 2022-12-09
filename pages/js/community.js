@@ -5,13 +5,11 @@ async function getUsers() {
         document.getElementById("users-container").innerHTML +=
             `<div class="user-box">
                   <img class='profile-pic' onclick="viewUser('${users[i].username}')" style="cursor:pointer;" src='./assets/profile-pics/profile-pic-${users[i].profile_pic}.png'/>
-                  <br><br>
                   <div class='user-info'>
                       <div onclick="viewUser('${users[i].username}')" style="cursor:pointer;">
                           <h3>${users[i].username}</h3>
                       </div>
-                      <br>
-                      ${users[i].about}
+                      <span class='user-about'>${users[i].about}</span>
                   </div>
               </div>`;
     }

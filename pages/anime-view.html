@@ -50,24 +50,43 @@
 
   <div class="anime-view">
     <div id="anime-info">
-      <img src="" id="anime-img" />
+      <div id="anime-img-wrapper">
+        <img src="" id="anime-img" />
+      </div>
       <div class="anime-info-text">
         <h4 id="anime-title"></h4>
-        <h4 id="anime-title-jp"></h4>
-        <br>
+        <h6 id="anime-title-jp"></h6>
         <h6 id="anime-genres"></h6>
-        <h6 id="anime-rank"></h6>
-        <h6 id="anime-score"></h6>
+        <br>
+        <div id="anime-synopsis-wrapper">
+          <h6 id="anime-synopsis"></h6>
+        </div>
       </div>
     </div>
-    <br>
-    <h6 id="anime-synopsis"></h6>
-    <br>
-    <button id="save-watching-button" class="add-to-list-button">Watching</button>
-    <button id="save-planned-button" class="add-to-list-button">Plan to watch</button>
-    <button id="save-completed-button" class="add-to-list-button">Completed</button>
-    <br><br>
-    <h6 id="error"></h6>
+    <div id="add-to-list-message">
+    </div>
+    <div id="anime-info-bottom">
+      <div id="add-to-list-buttons">
+        <button id="save-watching-button" class="add-to-list-button watching">Watching</button>
+        <button id="save-planned-button" class="add-to-list-button plan-to-watch">Plan to watch</button>
+        <button id="save-completed-button" class="add-to-list-button completed">Completed</button>
+        <h6 id="error"></h6>
+      </div>
+      <div id="anime-rank-score-year">
+        <div id="anime-rank-wrapper">
+          <h1 id="anime-rank"></h1>
+          <h6 id="anime-rank-text"></h6>
+        </div>
+        <div id="anime-score-wrapper">
+          <h1 id="anime-score"></h1>
+          <h6 id="anime-score-text"></h6>
+        </div>
+        <div id="anime-year-wrapper">
+          <h1 id="anime-year"></h1>
+          <h6 id="anime-year-text"></h6>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- helper functions -->

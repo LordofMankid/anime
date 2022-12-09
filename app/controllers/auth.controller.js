@@ -14,7 +14,7 @@ exports.signup = (req, res) => {
     planned: [],
     watching: [],
     completed: [],
-    about: "Edit your 'About Me' here!",
+    about: "Anime Enjoyer",
     profile_pic: 0
   });
 
